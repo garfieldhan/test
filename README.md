@@ -1,131 +1,142 @@
-lsusb -v -d 0bda:8832 | tee usb_8832.txt   
-
-Bus 001 Device 002: ID 0bda:8832 Realtek Semiconductor Corp. 802.11ac WLAN Adapter
-Negotiated speed: High Speed (480Mbps)
-Device Descriptor:
-  bLength                18
-  bDescriptorType         1
-  bcdUSB               2.00
-  bDeviceClass            0 [unknown]
-  bDeviceSubClass         0 [unknown]
-  bDeviceProtocol         0 
-  bMaxPacketSize0        64
-  idVendor           0x0bda Realtek Semiconductor Corp.
-  idProduct          0x8832 802.11ac WLAN Adapter
-  bcdDevice            0.00
-  iManufacturer           1 Realtek
-  iProduct                2 802.11ac WLAN Adapter
-  iSerial                 3 00e04c000001
-  bNumConfigurations      1
-  Configuration Descriptor:
-    bLength                 9
-    bDescriptorType         2
-    wTotalLength       0x004a
-    bNumInterfaces          1
-    bConfigurationValue     1
-    iConfiguration          0 
-    bmAttributes         0xe0
-      Self Powered
-      Remote Wakeup
-    MaxPower              500mA
-    Interface Descriptor:
-      bLength                 9
-      bDescriptorType         4
-      bInterfaceNumber        0
-      bAlternateSetting       0
-      bNumEndpoints           8
-      bInterfaceClass       255 Vendor Specific Class
-      bInterfaceSubClass    255 Vendor Specific Subclass
-      bInterfaceProtocol    255 Vendor Specific Protocol
-      iInterface              2 802.11ac WLAN Adapter
-      Endpoint Descriptor:
-        bLength                 7
-        bDescriptorType         5
-        bEndpointAddress     0x84  EP 4 IN
-        bmAttributes            2
-          Transfer Type            Bulk
-          Synch Type               None
-          Usage Type               Data
-        wMaxPacketSize     0x0200  1x 512 bytes
-        bInterval               0
-      Endpoint Descriptor:
-        bLength                 7
-        bDescriptorType         5
-        bEndpointAddress     0x05  EP 5 OUT
-        bmAttributes            2
-          Transfer Type            Bulk
-          Synch Type               None
-          Usage Type               Data
-        wMaxPacketSize     0x0200  1x 512 bytes
-        bInterval               0
-      Endpoint Descriptor:
-        bLength                 7
-        bDescriptorType         5
-        bEndpointAddress     0x06  EP 6 OUT
-        bmAttributes            2
-          Transfer Type            Bulk
-          Synch Type               None
-          Usage Type               Data
-        wMaxPacketSize     0x0200  1x 512 bytes
-        bInterval               0
-      Endpoint Descriptor:
-        bLength                 7
-        bDescriptorType         5
-        bEndpointAddress     0x07  EP 7 OUT
-        bmAttributes            2
-          Transfer Type            Bulk
-          Synch Type               None
-          Usage Type               Data
-        wMaxPacketSize     0x0200  1x 512 bytes
-        bInterval               0
-      Endpoint Descriptor:
-        bLength                 7
-        bDescriptorType         5
-        bEndpointAddress     0x09  EP 9 OUT
-        bmAttributes            2
-          Transfer Type            Bulk
-          Synch Type               None
-          Usage Type               Data
-        wMaxPacketSize     0x0200  1x 512 bytes
-        bInterval               0
-      Endpoint Descriptor:
-        bLength                 7
-        bDescriptorType         5
-        bEndpointAddress     0x0a  EP 10 OUT
-        bmAttributes            2
-          Transfer Type            Bulk
-          Synch Type               None
-          Usage Type               Data
-        wMaxPacketSize     0x0200  1x 512 bytes
-        bInterval               0
-      Endpoint Descriptor:
-        bLength                 7
-        bDescriptorType         5
-        bEndpointAddress     0x0b  EP 11 OUT
-        bmAttributes            2
-          Transfer Type            Bulk
-          Synch Type               None
-          Usage Type               Data
-        wMaxPacketSize     0x0200  1x 512 bytes
-        bInterval               0
-      Endpoint Descriptor:
-        bLength                 7
-        bDescriptorType         5
-        bEndpointAddress     0x0c  EP 12 OUT
-        bmAttributes            2
-          Transfer Type            Bulk
-          Synch Type               None
-          Usage Type               Data
-        wMaxPacketSize     0x0200  1x 512 bytes
-        bInterval               0
-Device Qualifier (for other device speed):
-  bLength                10
-  bDescriptorType         6
-  bcdUSB               2.00
-  bDeviceClass            0 [unknown]
-  bDeviceSubClass         0 [unknown]
-  bDeviceProtocol         0 
-  bMaxPacketSize0        64
-  bNumConfigurations      1
-Device Status:     0x0001
-  Self Powered
+─# ls -l /sys/module/8852bu/parameters 2>&1
+总计 0
+-rw-r--r-- 1 root root 4096 10月21日 21:02 if2name
+-rw-r--r-- 1 root root 4096 10月21日 21:02 ifname
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_adaptivity_en
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_adaptivity_idle_probability
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_adaptivity_mode
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_ampdu_enable
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_amplifier_type_2g
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_amplifier_type_5g
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_amsdu_mode
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_antdiv_cfg
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_antdiv_type
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_ant_num
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_ap_fwd_b2u_flags
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_ap_src_b2u_flags
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_band
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_band_type
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_bcn_hint_valid_ms
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_beamform_cap
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_btcoex_enable
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_busy_thresh
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_bw_mode
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_channel
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_channel_plan
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_check_hw_status
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_chip_version
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_ch_switch_offload
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_country_code
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_country_ie_slave_en_ifbmp
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_country_ie_slave_en_mode
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_country_ie_slave_en_role
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_country_ie_slave_flags
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_country_ie_slave_scan_int_ms
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_decrypt_phy_file
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_dfs_region_domain
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_dis_ch_flags
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_drv_ant_band_switch
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_dynamic_agg_enable
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_dyn_txbf
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_edcca_cs_th
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_edcca_mode_sel
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_edcca_th_2g
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_edcca_th_5g
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_en_dyn_rrsr
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_en_ecsa
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_en_gro
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_en_napi
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_excl_chs
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_FileMaskEfuse
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_full_ch_in_p2p_handshake
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_fw_ofld_cap
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_GLNA_type
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_halrf_ability
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_he_enable
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_hiq_filter
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_ht_enable
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_hwpwrp_detect
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_hw_rts_en
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_hw_wps_pbc
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_initmac
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_init_regd_always_apply
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_ips_mode
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_iqk_fw_offload
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_lbkmode
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_load_phy_file
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_low_power
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_lowrate_two_xmit
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_lps_mode
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_max_amsdu_len
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_max_ap_assoc_sta
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_max_bss_cnt
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_max_roaming_times
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_mbo_cell_data_conn
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_mp_mode
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_network_mode
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_OffEfuseMask
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_pci_dynamic_aspm_linkctrl
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_phydm_ability
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_phy_file_path
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_pll_ref_clk_sel
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_powertracking_type
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_pwrtrim_enable
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_qos_opt_enable
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_quick_addba_req
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_quota_turbo_en
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_regd_src
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_rfe_type
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_RFE_type
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_rfintfs
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_rfk_ability
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_rf_path
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_roch_extend_dur
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_roch_max_away_dur
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_roch_min_home_dur
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_rrsr_value
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_rx_ampdu_amsdu
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_rx_ampdu_sz_limit_1ss
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_rx_ampdu_sz_limit_2ss
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_rx_ampdu_sz_limit_3ss
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_rx_ampdu_sz_limit_4ss
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_rxgain_offset_2g
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_rxgain_offset_5gh
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_rxgain_offset_5gl
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_rxgain_offset_5gm
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_rx_nss
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_scan_fw_ofld
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_scan_interval_thr
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_scan_pch_ex
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_single_ant_path
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_stbc_cap
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_switch_usb_mode
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_sw_proto_bf_cap_phy0
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_sw_proto_bf_cap_phy1
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_target_tx_pwr_2g_a
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_target_tx_pwr_2g_b
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_target_tx_pwr_2g_c
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_target_tx_pwr_2g_d
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_target_tx_pwr_5g_a
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_target_tx_pwr_5g_b
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_target_tx_pwr_5g_c
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_target_tx_pwr_5g_d
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_tx_ampdu_amsdu
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_tx_ampdu_num
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_TxBBSwing_2G
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_TxBBSwing_5G
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_tx_bw_mode
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_tx_nss
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_tx_pwr_by_rate
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_tx_pwr_lmt_enable
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_usb_rxagg_mode
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_user_regd_always_apply
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_vcs_type
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_vht_24g_enable
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_vht_enable
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_vht_rx_mcs_map
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_vo_edca
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_vrtl_carrier_sense
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_wifi_spec
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_wireless_mode
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_wmm_enable
+-rw-r--r-- 1 root root 4096 10月21日 21:02 rtw_wowlan_sta_mix_mode
