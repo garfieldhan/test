@@ -1,26 +1,55 @@
-static struct usb_device_id rtw_usb_id_tbl[] = {
-#ifdef CONFIG_RTL8852B
-        /*=== Realtek demoboard ===*/
-        {USB_DEVICE_AND_INTERFACE_INFO(USB_VENDER_ID_REALTEK, 0xB832, 0xff, 0xff, 0xff), .driver_info = RTL8852B},
-        {USB_DEVICE_AND_INTERFACE_INFO(USB_VENDER_ID_REALTEK, 0xB83A, 0xff, 0xff, 0xff), .driver_info = RTL8852B},
-        {USB_DEVICE_AND_INTERFACE_INFO(USB_VENDER_ID_REALTEK, 0xB852, 0xff, 0xff, 0xff), .driver_info = RTL8852B},
-        {USB_DEVICE_AND_INTERFACE_INFO(USB_VENDER_ID_REALTEK, 0xB85A, 0xff, 0xff, 0xff), .driver_info = RTL8852B},
-        {USB_DEVICE_AND_INTERFACE_INFO(USB_VENDER_ID_REALTEK, 0xA85B, 0xff, 0xff, 0xff), .driver_info = RTL8852B},
-
-        /*=== ASUS USB-AX55 =======*/
-        {USB_DEVICE_AND_INTERFACE_INFO(USB_VENDOR_ID_ASUS, 0x1a62, 0xff, 0xff, 0xff), .driver_info = RTL8852B},
-#endif /* CONFIG_RTL8852B */
-#ifdef CONFIG_RTL8852BP
-        /*=== Realtek demoboard ===*/
-        {USB_DEVICE_AND_INTERFACE_INFO(USB_VENDER_ID_REALTEK, 0xA85C, 0xff, 0xff, 0xff), .driver_info = RTL8852BP},
-#endif /* CONFIG_RTL8852BP */
-
-        {}      /* Terminating entry */
-};
-        {.idVendor = USB_VENDER_ID_REALTEK, .idProduct = 0x8177, .flags = SPEC_DEV_ID_DISABLE_HT}, /* 8188cu 1*1 dongole, (b/g mode only) */
-        {.idVendor = USB_VENDER_ID_REALTEK, .idProduct = 0x817E, .flags = SPEC_DEV_ID_DISABLE_HT}, /* 8188CE-VAU USB minCard (b/g mode only) */
-        {.idVendor = 0x0b05,tic struct usb_device_id rtw_usb_id_tbl[] = {
-#ifdef .idProduct = 0x1791, .flags = SPEC_DEV_ID_DISABLE_HT},
-        {.idVendor = 0x13D3, .idProduct = 0x3311, .flags = SPEC_DEV_ID_DISABLE_HT},
-        {.idVendor = 0x13D3, .idProduct = 0x3359, .flags = SPEC_DEV_ID_DISABLE_HT}, /* Russian customer -Azwave (8188CE-VAU  g mode) */
-#ifdef RTK_DMP_PLATFORM
+                                                                                 
+┌──(root㉿kali)-[/usr/src/rtl8852bu]
+└─# sudo make clean 2>/dev/null || true
+cd phl ; rm -fr */*/*/*/*.mod.c */*/*/*/*.mod */*/*/*/*.o */*/*/*/.*.cmd */*/*/*/*.ko
+cd phl ; rm -fr */*/*/*.mod.c */*/*/*.mod */*/*/*.o */*/*/.*.cmd */*/*/*.ko
+cd phl ; rm -fr */*/*.mod.c */*/*.mod */*/*.o */*/.*.cmd */*/*.ko
+cd phl ; rm -fr */*.mod.c */*.mod */*.o */.*.cmd */*.ko
+cd phl ; rm -fr *.mod.c *.mod *.o .*.cmd *.ko
+cd core ; rm -fr */*.mod.c */*.mod */*.o */.*.cmd */*.ko
+cd core ; rm -fr *.mod.c *.mod *.o .*.cmd *.ko
+cd os_dep/linux ; rm -fr *.mod.c *.mod *.o .*.cmd *.ko
+cd os_dep/linux/hwsim ; rm -fr *.mod.c *.mod *.o .*.cmd *.ko
+cd os_dep ; rm -fr *.mod.c *.mod *.o .*.cmd *.ko
+cd platform ; rm -fr *.mod.c *.mod *.o .*.cmd *.ko
+rm -fr Module.symvers ; rm -fr Module.markers ; rm -fr modules.order
+rm -fr *.mod.c *.mod *.o .*.cmd *.ko *~
+rm -fr .tmp_versions
+                                                                                 
+┌──(root㉿kali)-[/usr/src/rtl8852bu]
+└─# make -j$(nproc)
+make ARCH=x86_64 CROSS_COMPILE= -C /lib/modules/6.16.8+kali-amd64/build M=/usr/src/rtl8852bu  modules
+make[1]: 进入目录“/usr/src/linux-headers-6.16.8+kali-amd64”
+make[2]: 进入目录“/usr/src/rtl8852bu”
+  CC [M]  platform/platform_ops.o
+  CC [M]  os_dep/osdep_service.o
+  CC [M]  os_dep/osdep_service_linux.o
+  CC [M]  os_dep/linux/rtw_cfg.o
+os_dep/osdep_service.c:17:10: fatal error: drv_types.h: 没有那个文件或目录
+   17 | #include <drv_types.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+platform/platform_ops.c:15:10: fatal error: drv_types.h: 没有那个文件或目录
+   15 | #include <drv_types.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+make[4]: *** [/usr/src/linux-headers-6.16.8+kali-common/scripts/Makefile.build:292：os_dep/osdep_service.o] 错误 1
+make[4]: *** 正在等待未完成的任务....
+make[4]: *** [/usr/src/linux-headers-6.16.8+kali-common/scripts/Makefile.build:292：platform/platform_ops.o] 错误 1
+os_dep/osdep_service_linux.c:16:10: fatal error: drv_types.h: 没有那个文件或目录
+   16 | #include <drv_types.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+make[4]: *** [/usr/src/linux-headers-6.16.8+kali-common/scripts/Makefile.build:292：os_dep/osdep_service_linux.o] 错误 1
+os_dep/linux/rtw_cfg.c:17:10: fatal error: drv_types.h: 没有那个文件或目录
+   17 | #include <drv_types.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+make[4]: *** [/usr/src/linux-headers-6.16.8+kali-common/scripts/Makefile.build:292：os_dep/linux/rtw_cfg.o] 错误 1
+make[3]: *** [/usr/src/linux-headers-6.16.8+kali-common/Makefile:2027：.] 错误 2
+make[2]: *** [/usr/src/linux-headers-6.16.8+kali-common/Makefile:260：__sub-make] 错误 2
+make[2]: 离开目录“/usr/src/rtl8852bu”
+make[1]: *** [/usr/src/linux-headers-6.16.8+kali-common/Makefile:260：__sub-make] 错误 2
+make[1]: 离开目录“/usr/src/linux-headers-6.16.8+kali-amd64”
+make: *** [Makefile:738：modules] 错误 2
+                                                     
