@@ -1,0 +1,5 @@
+[  142.879786] 8852bu: loading out-of-tree module taints kernel.
+[  142.880032] 8852bu: module verification failed: signature and/or required key missing - tainting kernel
+[  146.964642] usbcore: registered new interface driver rtl8852bu
+[  232.022489] usbcore: registered new interface driver usb-storage
+[  232.059049] usbcore: registered new interface driver uas
